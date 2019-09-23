@@ -20,8 +20,9 @@ class CreateTodosTable extends Migration
             $table->string('description');
             $table->string('completedTodos');
             $table->string('totalTodos');
-            $table->boolean('status');
+            $table->boolean('isCompleted');
             $table->boolean('isArchived');
+            $table->string('goal_id');            
             $table->timestamps();
         });
     }

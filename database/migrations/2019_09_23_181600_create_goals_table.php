@@ -18,7 +18,8 @@ class CreateGoalsTable extends Migration
             $table->string('title');
             $table->string('goal');
             $table->string('description');
-            $table->boolean('status');
+            $table->boolean('isCompleted');
+            $table->boolean('user_id');
             $table->timestamps();
         });
     }
