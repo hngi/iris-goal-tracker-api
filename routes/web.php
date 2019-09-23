@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/goals/create', 'GoalsController@create')->name('goals.create');
+
+Route::post('goals/store', 'GoalsController@store')->name('goals.store');
