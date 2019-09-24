@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
@@ -13,10 +13,10 @@ use App\Http\Resources\UserResource;
 
 class UserController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:api');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth:api');
+    // }
 
     public function index(){
         $users = UserResource::all();
@@ -27,8 +27,8 @@ class UserController extends Controller
     public function register(Request $request){
 
         Validator::make($request->all(), [
-			'name'  		=> 'required|string', 'max:255',
-			'email' 	 		=> 'required|string|email|max:255|unique:users',
+			'name'  		=> 'required|string|max:255',
+			'email' 	 		=> 'required|string|email|max:255',
 			'password' 	 		=> 'required|string|min:8|confirmed',
 
         ])->validate();
@@ -37,14 +37,15 @@ class UserController extends Controller
 		 'name', 'password', 'email',
         ]);
 
+
         $user['password'] = bcrypt($user['password']);
 
         User::create($user);
 
-        return new UserResource($user);
+        return $user;
     }
 
-    public function login(array $user){
+    public function login(Request $user){
         $credentials = collect($user)->only(['email','password']);
         // dd($data);
         if($user = auth()->attempt($credentials->toArray())){

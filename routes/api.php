@@ -13,19 +13,19 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 
-Route::get('/users', 'UserController@index')->name('users.all');
+Route::get('/users', 'UserController@index');
 
-Route::post('/user/register', 'UserController@register')->name('users.register');
+Route::post('/register', 'UserController@register');
 
-Route::post('/user/login', 'UserController@login')->name('users.login');
+Route::post('/login', 'UserController@login');
 
-Route::get('/user/{user}', 'UserController@getById')->name('tasks.getId');
+Route::get('/user/{user}', 'UserController@getById');
 
-Route::put('/user/{user}', 'TaskController@update')->name('user.update');
+Route::put('/user/{user}', 'TaskController@update');
 
-Route::delete('/user/{user}', 'UserController@delete')->name('user.delete');
+Route::delete('/user/{user}', 'UserController@delete');
