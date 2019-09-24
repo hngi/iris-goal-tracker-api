@@ -1,0 +1,130 @@
+body  {
+    font-family: 'Roboto' ;  
+    background-color: whitesmoke;   
+    margin: 0 auto;
+    background-image: url( 'https://res.cloudinary.com/partypack/image/upload/c_scale,w_5000/v1569279903/samuel-zeller-rk_Zz3b7G2Y-unsplash_zfctas.jpg');
+    background-size: cover;
+}
+.nav-bar  {
+    margin: 1em 1em 3em 4%;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row nowrap;    
+}
+img  {
+    margin-left: 14%;
+}
+.container  {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.btn-signup  {
+    margin: .5em 1.5em 0em 45em;
+    background-color: transparent;
+    color: black;
+    border-radius: .4em;
+    border: none;
+    width: 6.7em;
+    height: 3.5em;
+    cursor: pointer;
+    
+}
+.btn-signin  {
+    margin: .5em 1.5em 0em 1em;
+    background-color: transparent;
+    color: black;   
+    border-radius: .4em;
+    border: none;
+    width: 6.7em;
+    height: 3.5em;
+    cursor: pointer;
+    z-index: 1;
+}
+.btn-signup:hover, .btn-signin:hover   {
+    background-color: transparent;
+    border: 2px solid black;    
+}
+
+.btn-signup:active , .btn-signup:active {
+    top: .2em;
+}
+.welcomeContainer p  {
+    font-size: 2.2em;
+    line-height: .3em;
+
+}
+h3 {
+    color: grey;
+    font-style: italic;
+    line-height: .3em;         
+} 
+.btn-start  {
+    background-color:#0083FF;
+    color:#F5F5F5;
+    padding: 1em .7em;
+    border-radius: .5em;
+    border-radius: 1px solid #0083FF;
+}
+
+
+/* CSS for signupContainer*/
+.signupContainer  {
+    background-color: white;
+    color: black;
+    opacity: .8;
+    width: 13em;
+    padding: 1em 6em 7em 3em;
+}
+h2  {
+    text-align: center;
+    margin-top: 2.2em;
+    font-weight: bolder;
+
+}
+#fullname, #email, #password {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: dimgrey;   
+    padding: 1em 5em 0.7em 0em;
+
+} 
+.button  {
+    background-color: #0083FF;
+    color: white;    
+    padding: 1em 7em;
+    border-radius: .5em;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: whitesmoke;
+    color:  #0083FF;
+    
+} 
+.button:active {
+    top: 2px;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
