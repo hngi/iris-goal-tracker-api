@@ -1,4 +1,4 @@
-API for the Goal Tracker App developed by Team Iris
+#API for the Goal Tracker App developed by Team Iris
 <!-- [![Build Status](https://travis-ci.org/timolinn/hng.tech.svg?branch=master)](https://travis-ci.org/timolinn/hng.tech) -->
 
 <div align="center">
