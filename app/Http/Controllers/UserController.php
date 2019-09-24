@@ -3,23 +3,24 @@
 namespace App\Http\Controllers;
 
 
-use App\Goal;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
+use App\Http\Resources\UserResource;
 
 class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:api');
     }
 
     public function index(){
-        $users = User::all();
+        $users = UserResource::all();
+
         return $users;
     }
 
@@ -39,6 +40,8 @@ class UserController extends Controller
         $user['password'] = bcrypt($user['password']);
 
         User::create($user);
+
+        return new UserResource($user);
     }
 
     public function login(array $user){
@@ -46,7 +49,7 @@ class UserController extends Controller
         // dd($data);
         if($user = auth()->attempt($credentials->toArray())){
             $user = auth()->user();
-            return $user;
+            return new UserResource($user);
         }
 
         return  false;
@@ -58,7 +61,8 @@ class UserController extends Controller
     public function getById($id){
 
         $user = $this->user->findorfail($id);
-        return $user;
+
+        return new UserResource($user);
     }
       
       
@@ -84,13 +88,13 @@ class UserController extends Controller
         $user->save();
         
         if($user){
-            return $user;
+            return new UserResource($user);
         }
     }
 
     public function delete($id){
 
-        return   $this->user->where('id', $id)->delete();
+        return  User::find($id)->delete();
           
     }
 }
