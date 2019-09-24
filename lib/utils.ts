@@ -14,9 +14,9 @@ import { SanitizationChain } from 'express-validator/filter';
  * @param data
  * @param pagination
  */
-export const sendSuccess = (res: Response, data?: any, isPaginated = false): void => {
+export const sendSuccess = (res: Response, data?: any): void => {
   res.status(responseCodes.DEFAULT_SUCCESS_STATUS_CODE)
-    .send(new ServerResponse(constants.SUCCESS, constants.EMPTY_STRING, constants.EMPTY_STRING, isPaginated && data[0] ? data[0].data : data, isPaginated && data[0] ? data[0].meta : null))
+    .send(new ServerResponse(constants.SUCCESS, constants.EMPTY_STRING, constants.EMPTY_STRING, data))
 
   return
 }
