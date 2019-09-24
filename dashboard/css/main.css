@@ -1,0 +1,25 @@
+section {
+    float: left;
+    margin: 0 1.5%;
+    width: 30%;
+  }
+  
+  #add-new-goal {
+background: #0083FF;
+  }
+
+  #profile {
+background: #FFFFFF;
+border-radius: 10px;
+  }
+
+ #items-in-row {
+  width: 155px;
+  height: 70px;
+border-radius: 10px;
+ }
+
+h4 {
+  color: #0083FF;
+  font-weight: bold;
+}
