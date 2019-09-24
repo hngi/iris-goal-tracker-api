@@ -12,11 +12,11 @@
                     <!-- Display Validation Errors -->
                     @include('common.errors')
 
-                    <!-- New Task Form -->
+                    <!-- New Goal Form -->
                     <form action="{{ url('task') }}" method="POST" class="form-horizontal">
                         {{ csrf_field() }}
 
-                        <!-- Task Name -->
+                        <!-- Goal Name -->
                         <div class="form-group">
                             <label for="task-name" class="col-sm-3 control-label">Goal</label>
 
@@ -53,9 +53,9 @@
                             <tbody>
                                 @foreach ($goals as $goal)
                                     <tr>
-                                        <td class="table-text"><div>{{ $task->name }}</div></td>
+                                        <td class="table-text"><div>{{ $goal->name }}</div></td>
 
-                                        <!-- Task Delete Button -->
+                                        <!-- Goal Delete Button -->
                                         <td>
                                             <form action="{{url('task/' . $task->id)}}" method="POST">
                                                 {{ csrf_field() }}
