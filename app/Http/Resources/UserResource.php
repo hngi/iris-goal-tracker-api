@@ -13,12 +13,12 @@ class UserResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    public function toArray(User $request)
+    public function toArray(User $user)
     {
       return [
-        'id' => $request->id,
-        'name' => $request->name,
-        'email' => $request->email,
+        'id' => $user->id,
+        'name' => $user->name,
+        'email' => $user->email,
         'created_at' => (string) $this->created_at,
         'updated_at' => (string) $this->updated_at,
       ];
