@@ -1,5 +1,5 @@
 import { AuthHandler, ValidationHandler } from '../../handlers'
-import UserController from './users.controller'
+import UsersController from './users.controller'
 import { Route, HttpMethod } from '../../lib/utils'
 
 const USER_URL = '/api/users'
@@ -8,47 +8,47 @@ const userEndpoints: Route[] = [
   {
     path: `${USER_URL}/:id`,
     method: HttpMethod.GET,
-    handler: [UserController.getSingleUser]
+    handler: [UsersController.getSingleUser]
   },
   {
     path: `${USER_URL}/`,
     method: HttpMethod.POST,
-    handler: [ValidationHandler.createUser, ValidationHandler.checkError, UserController.createUser]
+    handler: [ValidationHandler.createUser, ValidationHandler.checkError, UsersController.createUser]
   },
   {
     path: `${USER_URL}/login`,
     method: HttpMethod.POST,
-    handler: [ValidationHandler.loginUser, ValidationHandler.checkError, UserController.loginUser]
+    handler: [ValidationHandler.loginUser, ValidationHandler.checkError, UsersController.loginUser]
   },
   {
     path: `${USER_URL}/request-verification`,
     method: HttpMethod.POST,
-    handler: [ValidationHandler.requestVerification, ValidationHandler.checkError, UserController.requestVerification]
+    handler: [ValidationHandler.requestVerification, ValidationHandler.checkError, UsersController.requestVerification]
   },
   {
     path: `${USER_URL}/verify`,
     method: HttpMethod.POST,
-    handler: [ValidationHandler.confirmUser, ValidationHandler.checkError, UserController.confirmUser]
+    handler: [ValidationHandler.confirmUser, ValidationHandler.checkError, UsersController.confirmUser]
   },
   {
     path: `${USER_URL}/forgot-password`,
     method: HttpMethod.POST,
-    handler: [ValidationHandler.forgotPassword, ValidationHandler.checkError, UserController.forgotPassword]
+    handler: [ValidationHandler.forgotPassword, ValidationHandler.checkError, UsersController.forgotPassword]
   },
   {
     path: `${USER_URL}/reset-password`,
     method: HttpMethod.POST,
-    handler: UserController.resetPassword
+    handler: UsersController.resetPassword
   },
   {
     path: `${USER_URL}/change-password`,
     method: HttpMethod.POST,
-    handler: [AuthHandler.checkToken, UserController.resetPassword]
+    handler: [AuthHandler.checkToken, UsersController.resetPassword]
   },
   {
     path: `${USER_URL}/:id`,
     method: HttpMethod.PUT,
-    handler: [AuthHandler.checkToken, UserController.updateUser]
+    handler: [AuthHandler.checkToken, UsersController.updateUser]
   }
 ]
 

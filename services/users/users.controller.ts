@@ -2,7 +2,7 @@ import { Response, Request, NextFunction } from "express"
 import { sendSuccess } from '../../lib/utils'
 import UserHandler from './users.handler'
 
-class UserController {
+class UsersController {
 
   /**
    * Retrieves a single registered user
@@ -168,4 +168,4 @@ class UserController {
 
 }
 
-export default new UserController()
+export default new UsersController()
