@@ -2,9 +2,20 @@ export const GoalsAggregations = [
   {
     '$lookup': {
       'from': 'todos',
+      'let': {
+        'goalId': '$_id'
+      },
       'as': 'meta',
       'pipeline': [
         {
+          '$match': {
+            '$expr': {
+              '$eq': [
+                '$goal', '$$goalId'
+              ]
+            }
+          }
+        }, {
           '$facet': {
             'totalTodos': [
               {
@@ -38,6 +49,17 @@ export const GoalsAggregations = [
     '$unwind': {
       'path': '$meta.completedTodos',
       'preserveNullAndEmptyArrays': true
+    }
+  }
+]
+
+export const SingleGoalAggregations = [
+  {
+    $lookup: {
+      from: 'todos',
+      localField: '_id',
+      foreignField: 'goal',
+      as: 'todos'
     }
   }
 ]

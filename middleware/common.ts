@@ -16,7 +16,7 @@ export const handleRequestParsing = (router: Router) => {
 }
 
 export const handleCors = (router: Router) => {
-  const whitelist = 'http://localhost:4200 https://hobeei.herokuapp.com http://hobeei.herokuapp.com http://localhost:3000 https://www.hobeei.com http://www.hobeei.com http://hobeei.com'
+  const whitelist = 'http://localhost:4200 https://hng-iris-goal-tracker.herokuapp.com http://hng-iris-goal-tracker.herokuapp.com http://localhost:3000'
   router.use(cors({
     credentials: true,
     origin: (origin, callback) => {

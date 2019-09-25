@@ -4,7 +4,7 @@ import { CustomError } from "../../lib/custom-error"
 import { responseCodes } from "../../constants/response-codes"
 import { responseMessages } from "../../constants/response-messages"
 import mongoose from 'mongoose'
-import { GoalsAggregations } from './goals.aggregation'
+import { GoalsAggregations, SingleGoalAggregations } from './goals.aggregation'
 
 class GoalHandler {
   constructor() { }
@@ -32,10 +32,15 @@ class GoalHandler {
   }
 
   async getSingleGoal(id: string) {
-    const goal = await MongoHandler.findOne(Goal, id).catch(e => { throw e })
+    const goals: any[] = await MongoHandler.aggregate(Goal, [{ $match: { '_id': mongoose.Types.ObjectId(id) } }, ...SingleGoalAggregations])
+      .catch(e => {
+        throw new CustomError(responseCodes.ERROR_NOT_FOUND, responseMessages.resourceNotFound('goal'), responseCodes.DEFAULT_ERROR_STATUS_CODE, e)
+      })
 
-    if (goal) {
-      return goal
+    if (Array.isArray(goals) && goals.length > 0) {
+      return goals[0]
+    } else {
+      throw new CustomError(responseCodes.ERROR_NOT_FOUND, responseMessages.resourceNotFound('goal'), responseCodes.DEFAULT_ERROR_STATUS_CODE)
     }
   }
 
