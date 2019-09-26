@@ -50,6 +50,18 @@ export const GoalsAggregations = [
       'path': '$meta.completedTodos',
       'preserveNullAndEmptyArrays': true
     }
+  }, {
+    '$addFields': {
+      'isComplete': {
+        '$cond': [
+          '$meta.totalTodos', {
+            '$eq': [
+              '$meta.completedTodos.value', '$meta.totalTodos.value'
+            ]
+          }, false
+        ]
+      }
+    }
   }
 ]
 

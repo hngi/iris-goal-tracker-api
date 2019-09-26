@@ -173,10 +173,13 @@ class UserHandler {
       }
     }
 
-    const updatedUser = await MongoHandler.update(user, payload, Array.from(skipUpdate))
+    const updatedUser: any = await MongoHandler.update(user, payload, Array.from(skipUpdate))
       .catch(async e => {
         throw new CustomError(responseCodes.ERROR_FAILED_UPDATE, responseMessages.ERROR_FAILED_UPDATE, 500, e)
       })
+
+    const plainUserObj = updatedUser.toObject()
+    updatedUser.token = jwt.sign(plainUserObj, JWT_SECRET, { expiresIn: '7d' })
     return updatedUser
   }
 
