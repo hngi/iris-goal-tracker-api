@@ -1,4 +1,4 @@
-#API for the Goal Tracker App developed by Team Iris
+# API for the Goal Tracker App developed by Team Iris
 <!-- [![Build Status](https://travis-ci.org/timolinn/hng.tech.svg?branch=master)](https://travis-ci.org/timolinn/hng.tech) -->
 
 <div align="center">
@@ -47,24 +47,66 @@ php artisan serve
 Visit localhost:8000 in your browser
 ```
 
-<!-- # Contribution Guide
+# How to Use Goal Tracker by Team Iris
 
 ```bash
-git checkout staging
+Navigate to https://hng-iris-goal-tracker.herokuapp.com/
 ```
 
-The template for your profile page can be found here
-`views/interns/template.php`
+- Create an account providing your Fullname, Email and desired password.
+<div align="center">
 
-- Copy the contents of that file
-- Create a new file with your slack username, e.g `mark.php`
-- Paste the contents there
-- Now your page should be assesible via `localhost:8000/interns/mark`
-  ![hng profile](https://res.cloudinary.com/iambeejayayo/image/upload/v1554302765/download.png)
-- Edit the contents of the file to your profile details
-- Push to `staging` branch and open a pull request
-- Wait for review
+![Team Iris Sign Up Page](https://res.cloudinary.com/dka33u9mx/image/upload/v1569487701/sign_up_vlvsmm.png)
 
-**Ensure you read this doc [here](https://docs.google.com/document/d/1TxZqGLsut4ZVJEP6xF-DZGq3goaHfQ2phF-1I3YbrNc/edit?usp=sharing) for complete instructions** <br>
-Failure to do this will warant closing your pull request
--->
+<br>
+
+</div>
+
+- A six digit pin would be sent to your email to complete the registration process.
+<div align="center">
+
+![Team Iris Login Page](https://res.cloudinary.com/dka33u9mx/image/upload/v1569487708/validate_u3fxqq.png)
+<br>
+
+</div>
+
+- Once registration is complete, you can login to our app.
+<div align="center">
+
+![Team Iris Login Page](https://res.cloudinary.com/dka33u9mx/image/upload/v1569487712/login_ef1htr.png)
+
+<br>
+
+</div>
+
+- You can edit your Name and Email.
+<div align="center">
+
+![Team Iris Edit Info](https://res.cloudinary.com/dka33u9mx/image/upload/v1569488450/editacct_zeejsf.png)
+<br>
+
+</div>
+
+- You can Add goals and Descriptions.
+<div align="center">
+
+![Team Iris Add Goal](https://res.cloudinary.com/dka33u9mx/image/upload/v1569489099/addgoal_ydvcsg.png)
+<br>
+
+</div>
+
+- You can View and see the Progress of your goal(s).
+<div align="center">
+
+![Team Iris Goal Progress](https://res.cloudinary.com/dka33u9mx/image/upload/v1569489296/at_a_glance_oteew3.png)
+<br>
+
+</div>
+
+- You can Check Completed Todo(s).
+<div align="center">
+
+![Team Iris Add Goal](https://res.cloudinary.com/dka33u9mx/image/upload/v1569489099/todo_unmbqe.png)
+<br>
+
+</div>
