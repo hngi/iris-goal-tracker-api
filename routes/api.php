@@ -18,14 +18,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/users', 'UserController@index')->name('users.all');
 
-Route::post('/user/register', 'UserController@register')->name('users.register');
 
-Route::post('/user/login', 'UserController@login')->name('users.login');
+Route::get('/users', 'UserController@index');
 
-Route::get('/user/{user}', 'UserController@getById')->name('tasks.getId');
+Route::post('/register', 'UserController@register');
 
-Route::put('/user/{user}', 'TaskController@update')->name('user.update');
+Route::post('/login', 'UserController@login')->name('login');
 
-Route::delete('/user/{user}', 'UserController@delete')->name('user.delete');
+Route::get('/user/{user}', 'UserController@getById');
+
+Route::put('/user/{user}', 'TaskController@update');
+
+Route::delete('/user/{user}', 'UserController@delete');
