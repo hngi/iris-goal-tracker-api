@@ -1,4 +1,3 @@
-import GoalsHandler from "../services/goals/goals.handler";
 import mongoose from "mongoose"
 
 const Schema = mongoose.Schema
