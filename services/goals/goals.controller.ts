@@ -6,9 +6,9 @@ class GoalsController {
   constructor() { }
 
   async createGoal(req: Request, res: Response, next: NextFunction) {
-    const { title, author, description } = req.body
+    const { title, author, description, scheduleTime } = req.body
 
-    const goal = await GoalHandler.createGoal(title, author, description).catch(e => next(e))
+    const goal = await GoalHandler.createGoal(title, author, description, scheduleTime).catch(e => next(e))
 
     if (goal) {
       sendSuccess(res, goal)

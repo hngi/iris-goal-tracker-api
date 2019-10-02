@@ -9,8 +9,9 @@ import { GoalsAggregations, SingleGoalAggregations } from './goals.aggregation'
 class GoalHandler {
   constructor() { }
 
-  async createGoal(title: string, author: string, description?: string) {
-    const category = new Goal({ title, author, description })
+  async createGoal(title: string, author: string, description?: string, scheduleTime?: string) {
+    scheduleTime = scheduleTime ? new Date(scheduleTime).toISOString() : undefined;
+    const category = new Goal({ title, author, description, scheduleTime })
 
     const newGoal = await MongoHandler.save(category).catch(e => {
       throw new CustomError(responseCodes.ERROR_TECHNICAL, responseMessages.errorSaving('goal'), responseCodes.DEFAULT_ERROR_STATUS_CODE, e)
