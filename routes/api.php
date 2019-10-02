@@ -28,6 +28,8 @@ Route::post('/login', 'UserController@login')->name('login');
 
 Route::get('/user/{user}', 'UserController@getById');
 
-Route::put('/user/{user}', 'TaskController@update');
+Route::put('/user/{user}', 'UserController@update');
 
 Route::delete('/user/{user}', 'UserController@delete');
+
+Route::get('/redirect', 'SocialAuthFacebookController@redirect');

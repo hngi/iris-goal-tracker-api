@@ -11,6 +11,18 @@
 |
 */
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::get('/goals/create', 'GoalsController@create')->name('goals.create');
 
 Route::post('goals/store', 'GoalsController@store')->name('goals.store');
+
+Route::get('/redirect', 'SocialAuthFacebookController@redirect');
+
+Route::get('/callback', 'SocialAuthFacebookController@callback');
+
+Route::post('/login', 'UserController@login')->name('login');
+
+Route::get('/login-page', 'UserController@loginPage')->name('user.login');

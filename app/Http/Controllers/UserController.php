@@ -69,6 +69,10 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 
     }
 
+    public function loginPage(){
+        return view('login');
+    }
+
     // public function login(Request $user){
     //     $credentials = collect($user)->only(['email','password']);
     //     // dd($data);
