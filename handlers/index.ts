@@ -6,5 +6,4 @@ import ErrorHandler from './error.handler';
 import UploadHandler from './upload.handler';
 
 
-export { AuthHandler, MongoHandler, ValidationHandler, EmailHandler, ErrorHandler }
-export { ..., UploadHandler }
+export { AuthHandler, MongoHandler, ValidationHandler, EmailHandler, ErrorHandler, UploadHandler }
