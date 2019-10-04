@@ -4,6 +4,7 @@ import {
   handleRateLimiter,
   handleCompression,
   handleRequestParsing
+  handleUploadStorage
 } from './common'
 
 export default [
@@ -12,4 +13,5 @@ export default [
   handleHelmet,
   handleRateLimiter,
   handleRequestParsing
+  handleUploadStorage
 ]

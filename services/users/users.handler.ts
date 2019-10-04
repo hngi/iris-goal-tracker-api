@@ -210,6 +210,12 @@ class UserHandler {
     const user = await this.getUserByEmail(email).catch(e => { throw e })
     return Boolean(user)
   }
+  
+  async uploadImage(id: string, name: string, data: string) {
+    const user = await this.updateUserById(id, { image: { name, data } }).catch(e => { throw e });
+​
+    return user;
+  }
 
   /**
    * @param email - User's email address
