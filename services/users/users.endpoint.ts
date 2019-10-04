@@ -1,7 +1,6 @@
-import { AuthHandler, ValidationHandler } from '../../handlers'
+import { AuthHandler, ValidationHandler, UploadHandler } from '../../handlers'
 import UsersController from './users.controller'
 import { Route, HttpMethod } from '../../lib/utils'
-import { ..., UploadHandler } from '../../handlers'
 
 const USER_URL = '/api/users'
 
@@ -50,7 +49,7 @@ const userEndpoints: Route[] = [
     path: `${USER_URL}/:id`,
     method: HttpMethod.PUT,
     handler: [AuthHandler.checkToken, UsersController.updateUser]
-  }
+  },
   {
     path: `${USER_URL}/uploads/image/:id`,
     method: HttpMethod.POST,

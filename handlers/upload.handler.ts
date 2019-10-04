@@ -1,5 +1,5 @@
 import multer from 'multer'; // if an error shows up here, run `npm i @types/multer -D`
-​
+
 class UploadHandler {
   private storage() {
     return multer.diskStorage({
@@ -11,7 +11,7 @@ class UploadHandler {
       }
     });
   }
-​
+
   private fileFilter(req: Express.Request, file: Express.Multer.File, cb: (error: Error | null, acceptFile: boolean) => void) {
     if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
       cb(null, true);
@@ -20,7 +20,7 @@ class UploadHandler {
       cb(null, false);
     }
   }
-​
+
   public upload() {
     return multer({
       storage: this.storage(),
