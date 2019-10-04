@@ -166,6 +166,18 @@ class UsersController {
     return
   }
 
+  async uploadImage(req: Request, res: Response, next: NextFunction) {
+    const { id } = req.params
+    const { name } = req.body
+​
+  const user = await UserHandler.uploadImage(id, name, req.file.path).catch(e => next(e))
+​
+  if (user) {
+    sendSuccess(res, user)
+    return
+  }
+}
+
 }
 
 export default new UsersController()

@@ -8,6 +8,7 @@ import { rateLimitHandler } from "../lib/utils"
 import RateLimit from 'express-rate-limit'
 import { CustomError } from "../lib/custom-error";
 import { responseCodes } from "../constants/response-codes";
+import express from 'express'
 
 export const handleRequestParsing = (router: Router) => {
   router.use(bodyParser.urlencoded({ limit: constants.BODY_PARSER_LIMIT, extended: true }))
@@ -47,4 +48,11 @@ export const handleRateLimiter = (router: Router) => {
  */
 export const handleCompression = (router: Router) => {
   router.use(compression())
+}
+
+// middleware to set public url base for uploaded files
+// uploaded files will be accessed from https://iris-goal-tracker-api/api/uploads/IMAGE_PATH
+
+export const handleUploadStorage = (router: Router) => {
+  router.use('/api/uploads', express.static('uploads'));
 }

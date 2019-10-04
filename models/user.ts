@@ -7,7 +7,16 @@ const UserSchema = new Schema({
   name: { type: String, default: null },
   email: { type: String, lowercase: true, unique: true },
   password: { type: String, required: true },
-  image: { type: String, default: null },
+  image: {
+    name: {
+      type: String,
+      default: null
+    },
+    data: {
+      type: String,
+      default: null
+    }
+  },
   status: {
     type: String,
     default: 'pending',
