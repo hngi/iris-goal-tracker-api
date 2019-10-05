@@ -53,7 +53,7 @@ const userEndpoints: Route[] = [
   {
     path: `${USER_URL}/uploads/image/:id`,
     method: HttpMethod.POST,
-    handler: [AuthHandler.checkToken, UploadHandler.upload().single('data'), UsersController.uploadImage]
+    handler: [AuthHandler.checkToken, UsersController.uploadImage]
   },
 ]
 

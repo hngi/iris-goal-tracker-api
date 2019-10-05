@@ -8,10 +8,10 @@ import {
 } from './common'
 
 export default [
+  handleUploadStorage,
   handleCompression,
   handleCors,
   handleHelmet,
   handleRateLimiter,
-  handleRequestParsing,
-  handleUploadStorage
+  handleRequestParsing
 ]

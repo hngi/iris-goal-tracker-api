@@ -21,7 +21,7 @@ class UploadHandler {
     }
   }
 
-  public upload() {
+  public upload(): any {
     return multer({
       storage: this.storage(),
       limits: {
