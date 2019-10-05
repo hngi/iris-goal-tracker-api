@@ -1,4 +1,4 @@
-import multer from 'multer';
+import multer from 'multer'; // if an error shows up here, run `npm i @types/multer -D`
 
 class UploadHandler {
   private storage() {
