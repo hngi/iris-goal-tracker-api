@@ -1,4 +1,4 @@
-import { AuthHandler, ValidationHandler, UploadHandler } from '../../handlers'
+import { AuthHandler, ValidationHandler } from '../../handlers'
 import UsersController from './users.controller'
 import { Route, HttpMethod } from '../../lib/utils'
 
