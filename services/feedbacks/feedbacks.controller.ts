@@ -27,7 +27,7 @@ class FeedbacksController {
 
   async getFeedbacksByEmail(req: Request, res: Response, next: NextFunction) {
     const { email } = req.params; 
-    const feedbacks = await FeedbackHandler.getFeedbacksByEmail(email).catch(e => next(e))
+    const feedbacks = await FeedbackHandler.getAllFeedbacksByEmail(email).catch(e => next(e))
 
 
     if (feedbacks) {
@@ -37,7 +37,7 @@ class FeedbacksController {
   }
  
   async updateFeedback(req: Request, res: Response, next: NextFunction) {
-    const { email } = req.params; 
+    const { id } = req.params; 
     const updateFeedback = await FeedbackHandler.updateFeedback(id, req.body).catch(e => next(e))
 
     if (updateFeedback) {
@@ -47,7 +47,7 @@ class FeedbacksController {
   }
 
   async deleteFeedback(req: Request, res: Response, next: NextFunction) {
-    const { email } = req.params;  
+    const { id } = req.params;  
     await FeedbackHandler.deleteFeedback(id).catch(e => next(e))
 
     sendSuccess(res)
