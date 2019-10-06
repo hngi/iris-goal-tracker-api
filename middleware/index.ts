@@ -3,12 +3,10 @@ import {
   handleHelmet,
   handleRateLimiter,
   handleCompression,
-  handleRequestParsing,
-  handleUploadStorage
+  handleRequestParsing
 } from './common'
 
 export default [
-  handleUploadStorage,
   handleCompression,
   handleCors,
   handleHelmet,

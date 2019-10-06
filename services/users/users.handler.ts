@@ -197,6 +197,8 @@ class UserHandler {
     }
 
     user.password = newPassword
+    const plainUserObj = user.toObject()
+    user.token = jwt.sign(plainUserObj, JWT_SECRET, { expiresIn: '7d' })
 
     const newUser: any = await MongoHandler.save(user).catch(e => {
       throw new CustomError(responseCodes.ERROR_TECHNICAL, responseMessages.errorSaving('user'), responseCodes.DEFAULT_ERROR_STATUS_CODE, e)
