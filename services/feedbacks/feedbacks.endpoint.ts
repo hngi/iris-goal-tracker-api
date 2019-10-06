@@ -10,7 +10,7 @@ const feedbackEndpoints: Route[] = [
     method: HttpMethod.GET,
     handler: [FeedbacksController.getFeedbacks]
   },
-{
+  {
     path: `${FEEDBACK_URL}/email/:email`,
     method: HttpMethod.GET,
     handler: [FeedbacksController.getFeedbacksByEmail]
@@ -18,7 +18,7 @@ const feedbackEndpoints: Route[] = [
   {
     path: `${FEEDBACK_URL}/`,
     method: HttpMethod.POST,
-    handler: [AuthHandler.checkToken, FeedbacksController.createFeedback]
+    handler: [FeedbacksController.createFeedback]
   },
   {
     path: `${FEEDBACK_URL}/:id`,

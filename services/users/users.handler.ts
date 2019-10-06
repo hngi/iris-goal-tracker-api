@@ -197,6 +197,8 @@ class UserHandler {
     }
 
     user.password = newPassword
+    const plainUserObj = user.toObject()
+    user.token = jwt.sign(plainUserObj, JWT_SECRET, { expiresIn: '7d' })
 
     const newUser: any = await MongoHandler.save(user).catch(e => {
       throw new CustomError(responseCodes.ERROR_TECHNICAL, responseMessages.errorSaving('user'), responseCodes.DEFAULT_ERROR_STATUS_CODE, e)
@@ -210,10 +212,15 @@ class UserHandler {
     const user = await this.getUserByEmail(email).catch(e => { throw e })
     return Boolean(user)
   }
-  
+
   async uploadImage(id: string, name: string, data: string) {
+    // const ext = data.substring("data:image/".length, data.indexOf(";base64"));
+    // require("fs").writeFile(`uploads/${name}.${ext}`, data, 'base64', (err: any) => {
+    //   console.log('error saving profile image', err);
+    // });
+
     const user = await this.updateUserById(id, { image: { name, data } }).catch(e => { throw e });
-​
+
     return user;
   }
 
